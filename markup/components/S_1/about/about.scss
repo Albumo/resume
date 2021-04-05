@@ -1,0 +1,43 @@
+.about {
+    &__personality {
+        padding: 20px;
+        box-shadow: 5.592px .29px 30px 0 rgba(76, 75, 103, .1);
+    }
+
+    &__titling {
+        text-transform: uppercase;
+    }
+
+    &__title {
+        margin: 10px 0;
+        font-weight: 600;
+
+    }
+
+    &__list {
+        @extend %ul-reset;
+        margin-bottom: 10px;
+        padding: 0 10px;
+
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+    }
+
+    @media only screen and (min-width: 568px) {
+        &__personality-skills-wrap {
+            display: flex;
+            justify-content: space-between;
+            max-width: 890px;
+
+        }
+
+        &__list {
+            margin: 0 10px 0 0;
+            padding: 0;
+        }
+
+    }
+}

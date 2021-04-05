@@ -1,0 +1,28 @@
+mixin about(props)
+    .about
+        .about__personality
+            h2.about__titling About me
+            .about__personality-wrap
+                p.about__title PERSONALITY
+
+                span I am interested in IT and everything with it. Five years ago I began to be fascinated by web programming, developing apps and building websites. Invited to join my friend's start-up company as a front-end developer, I gained experience of working in this area. It was my first steps in a long journey.I look forward to a job that would allow for growth, with a good friendly and open mind team.In return, I would offer my full commitment, and be a pleasant and friendly addition to your team.
+
+                -
+                    const personalitys = [{
+                        personality: "Thirst to knowledges (my goals for next stage JS, React, Redux )"
+                    }, {personality: "High self-control and organization"}, {personality: "Responsibility"}, {personality: "Initiative"}, {personality: "Communicability"}, {personality: "Team player"}, {personality: "Sense of purpose"}, {personality: "Good process organization and planning skills"}, {personality: "Stress resistance"}]
+
+                .about__personality-skills-wrap
+                    .about__personality-skills
+                        p.about__title My personal skills:
+                        ul.about__list
+                            each val in personalitys
+                                li.about__item= val.personality
+
+                    .about__personality-skills
+                        p.about__title Hobbies:
+                        -
+                            const hobbies = [{hobbie: "Technology"}, {hobbie: "Music"}, {hobbie: "Cooking"}, {hobbie: "Travel"}, {hobbie: "Fixing computers and mobile devices"}]
+                        ul.about__list
+                            each val in hobbies
+                                li.about__item= val.hobbie

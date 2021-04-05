@@ -1,0 +1,24 @@
+include ../components/common/head
+include ../components/common/include-js
+include ../components/common/img-svg
+
+include ../components/%=component_header=%/header/header
+include ../components/%=component_rating=%/rating/rating
+include ../components/%=component_footer=%/footer/footer
+include ../components/%=component_skills=%/skills/skills
+include ../components/%=component_experience=%/experience/experience
+include ../components/%=component_about=%/about/about
+include ../components/%=component_text=%/text/text
+include ../components/%=component_contacts=%/contacts/contacts
+
+doctype html
+html(class="no-js" lang="en")
+    head
+        +head
+    body
+        .__cl-w-outer___
+            block content
+
+        +include-js
+
+        block scripts

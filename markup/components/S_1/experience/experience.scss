@@ -1,0 +1,37 @@
+.experience {
+    padding: 20px;
+    box-shadow: 5.592px .29px 30px 0 rgba(76, 75, 103, .1);
+
+    &.is-animated {
+
+
+    }
+
+    &__list {
+        @extend %ul-reset;
+
+    }
+
+    &__titling {
+        text-transform: uppercase;
+    }
+
+    &__item {
+        margin-bottom: 10px;
+    }
+
+    &__company {
+        margin: 0;
+        font-weight: 600;
+    }
+
+    @media only screen and (min-width: 568px) {
+        &__item {
+            display: flex;
+        }
+
+        &__date {
+            margin-left: 10px;
+        }
+    }
+}

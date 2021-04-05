@@ -1,0 +1,17 @@
+mixin header()
+
+    |<!-- ********** header-S-1 ********** -->
+
+    header.header-S-1&attributes(attributes)
+        .header.js-animate.js-header
+            .header__wrap
+                .header__left
+                    .header__img
+                        picture
+                            source(type="image/webp" srcset="static/img/content/avatar.webp" media="")
+                            img(class="lazyload" data-src="static/img/content/avatar.jpg" src="" alt="avatar")
+                    .header__name Uriy Derechey
+                .header__right
+                    +text
+
+    |<!-- ********** c-footer-S-1 ********** -->
