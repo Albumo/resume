@@ -20,13 +20,10 @@ block content
 block scripts
     script.
         $(document).ready(function () {
-            $(window).on('load resize orientationchange', function () {
-                if (($(window).innerWidth() <= 768)) {
-                    $('#fullpage').fullpage({
-                        navigation: true,
-                        navigationPosition: 'right',
-                    });
-                }
-            })
-
+            if (($(window).innerWidth() <= 768)) {
+                $('#fullpage').fullpage({
+                    navigation: true,
+                    navigationPosition: 'right',
+                });
+            }
         })
