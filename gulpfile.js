@@ -60,11 +60,11 @@ let current_skin = '';
 let current_skin_path = {};
 let current_theme = '';
 
-gulp.task('clean', function() {
-  del.sync('markup/pages/*');
+gulp.task('clean', function () {
+    del.sync('markup/pages/*');
 });
-gulp.task('clean-dev', function() {
-  del.sync('dev');
+gulp.task('clean-dev', function () {
+    del.sync('dev');
 });
 
 
@@ -96,11 +96,11 @@ gulp.task('replacePlaceholder', function () {
 
 gulp.task('sass-lint', function () {
     return gulp.src('**/*.scss')
-    .pipe(sassLint({
-        configFile: '.sass-lint.yml'
-    }))
-    .pipe(sassLint.format())
-    .pipe(sassLint.failOnError())
+        .pipe(sassLint({
+            configFile: '.sass-lint.yml'
+        }))
+        .pipe(sassLint.format())
+        .pipe(sassLint.failOnError())
 });
 
 gulp.task('sass-dev', function () {
@@ -158,11 +158,11 @@ gulp.task('sass-build', function () {
 // ****************************** PUG ****************************** //
 
 gulp.task('pug-lint', function () {
-     return gulp.src('**/*.pug')
-         .pipe(pugLinter({
-             reporter: pugLintStylish,
-             failAfterError: true
-         }))
+    return gulp.src('**/*.pug')
+        .pipe(pugLinter({
+            reporter: pugLintStylish,
+            failAfterError: true
+        }))
 });
 
 gulp.task('pug-dev', function () {
@@ -249,7 +249,7 @@ gulp.task('images-svgSprite-dev', function () {
         }))
         .pipe(gulp.dest(dev_path.img))
         .pipe(browsersync.reload({stream: true}));
-    });
+});
 // svg-sprite DEV end
 
 
@@ -265,20 +265,20 @@ gulp.task('images-general-build', function () {
     gulp.src(listSCSS)
         .pipe(changed(build_path.imgContent))
         .pipe(imagemin([
-            imagemin.gifsicle({interlaced: true}),
-            imagemin.jpegtran({progressive: true}),
-            imageminJpegRecompress({
-              loops: 5,
-              min: 80,
-              max: 90,
-              quality:'veryhigh'
-            }),
-            imagemin.svgo(),
-            imagemin.optipng({optimizationLevel: 3}),
-            pngquant({quality: [0.8, 0.9], speed: 3})
-          ],{
-            verbose: true
-          })
+                imagemin.gifsicle({interlaced: true}),
+                imagemin.jpegtran({progressive: true}),
+                imageminJpegRecompress({
+                    loops: 5,
+                    min: 80,
+                    max: 90,
+                    quality: 'veryhigh'
+                }),
+                imagemin.svgo(),
+                imagemin.optipng({optimizationLevel: 3}),
+                pngquant({quality: [0.8, 0.9], speed: 3})
+            ], {
+                verbose: true
+            })
         )
         .pipe(gulp.dest(build_path.img))
 });
@@ -287,20 +287,20 @@ gulp.task('images-content-build', function () {
     gulp.src([src_path.img + skinConfig.number + '/content/*'])
         .pipe(changed(build_path.imgContent))
         .pipe(imagemin([
-            imagemin.gifsicle({interlaced: true}),
-            imagemin.jpegtran({progressive: true}),
-            imageminJpegRecompress({
-              loops: 5,
-              min: 80,
-              max: 90,
-              quality:'veryhigh'
-            }),
-            imagemin.svgo(),
-            imagemin.optipng({optimizationLevel: 3}),
-            pngquant({quality: [0.8, 0.9], speed: 3})
-          ],{
-            verbose: true
-          })
+                imagemin.gifsicle({interlaced: true}),
+                imagemin.jpegtran({progressive: true}),
+                imageminJpegRecompress({
+                    loops: 5,
+                    min: 80,
+                    max: 90,
+                    quality: 'veryhigh'
+                }),
+                imagemin.svgo(),
+                imagemin.optipng({optimizationLevel: 3}),
+                pngquant({quality: [0.8, 0.9], speed: 3})
+            ], {
+                verbose: true
+            })
         )
         .pipe(gulp.dest(build_path.imgContent))
 });
@@ -451,7 +451,7 @@ gulp.task('replacePlaceholder-all', function () {
                 str = contentFile,
                 newstr = str.replace(re, current_skin);
 
-            fs.writeFileSync(current_skin_path.pages_dev + item , newstr, 'utf8');
+            fs.writeFileSync(current_skin_path.pages_dev + item, newstr, 'utf8');
             contentFile = newstr;
         }
 
@@ -505,20 +505,20 @@ gulp.task('images-general-build-all', function () {
     gulp.src(listSCSS)
         .pipe(changed(current_skin_path.imgContent))
         .pipe(imagemin([
-            imagemin.gifsicle({interlaced: true}),
-            imagemin.jpegtran({progressive: true}),
-            imageminJpegRecompress({
-              loops: 5,
-              min: 80,
-              max: 90,
-              quality: 'veryhigh'
-            }),
-            imagemin.svgo(),
-            imagemin.optipng({optimizationLevel: 3}),
-            pngquant({quality: [0.8, 0.9], speed: 3})
-          ],{
-            verbose: true
-          })
+                imagemin.gifsicle({interlaced: true}),
+                imagemin.jpegtran({progressive: true}),
+                imageminJpegRecompress({
+                    loops: 5,
+                    min: 80,
+                    max: 90,
+                    quality: 'veryhigh'
+                }),
+                imagemin.svgo(),
+                imagemin.optipng({optimizationLevel: 3}),
+                pngquant({quality: [0.8, 0.9], speed: 3})
+            ], {
+                verbose: true
+            })
         )
         .pipe(gulp.dest(current_skin_path.img))
 });
@@ -526,20 +526,20 @@ gulp.task('images-content-build-all', function () {
     gulp.src([src_path.img + current_skin + '/content/*'])
         .pipe(changed(current_skin_path.imgContent))
         .pipe(imagemin([
-            imagemin.gifsicle({interlaced: true}),
-            imagemin.jpegtran({progressive: true}),
-            imageminJpegRecompress({
-              loops: 5,
-              min: 80,
-              max: 90,
-              quality:'veryhigh'
-            }),
-            imagemin.svgo(),
-            imagemin.optipng({optimizationLevel: 3}),
-            pngquant({quality: [0.8, 0.9], speed: 3})
-          ],{
-            verbose: true
-          })
+                imagemin.gifsicle({interlaced: true}),
+                imagemin.jpegtran({progressive: true}),
+                imageminJpegRecompress({
+                    loops: 5,
+                    min: 80,
+                    max: 90,
+                    quality: 'veryhigh'
+                }),
+                imagemin.svgo(),
+                imagemin.optipng({optimizationLevel: 3}),
+                pngquant({quality: [0.8, 0.9], speed: 3})
+            ], {
+                verbose: true
+            })
         )
         .pipe(gulp.dest(current_skin_path.imgContent))
 });
@@ -605,14 +605,14 @@ gulp.task('build-item', [
 gulp.task('build-all-enum', function () {
     skinConfig.themes.forEach(dir => {
         skinConfig.skins.forEach(items => {
-            if(!fs.existsSync(`markup/pages/${items}_${dir}/`))
+            if (!fs.existsSync(`markup/pages/${items}_${dir}/`))
                 fs.mkdirSync(`markup/pages/${items}_${dir}/`)
         });
     });
 
-    skinConfig.themes.forEach(function (elem, index){
+    skinConfig.themes.forEach(function (elem, index) {
         current_theme = elem;
-        skinConfig.skins.forEach(function (elem, index){
+        skinConfig.skins.forEach(function (elem, index) {
             current_skin = elem;
             current_skin_path = {
                 pages_src: `markup/pages-src/${current_skin}/`,
@@ -636,5 +636,5 @@ gulp.task('build-back-end', [
 
 
 gulp.task('build-all', gulpsync.async([
-   ['clean-dev', 'clean', 'pug-lint', 'sass-lint', 'es-lint', 'build-all-enum']
+    ['clean-dev', 'clean', 'pug-lint', 'sass-lint', 'es-lint', 'build-all-enum']
 ]));

@@ -1,37 +1,42 @@
 {
-    "component_header": {
-        "number": "S_1",
-        "name": "header"
-    },
-    "component_footer": {
-        "number": "S_1",
-        "name": "footer"
-    },
-    "component_skills": {
-        "number": "S_1",
-        "name": "skills"
-    },
-    "component_rating": {
-        "number": "S_1",
-        "name": "rating"
-    },
-
-    "component_experience": {
-        "number": "S_1",
-        "name": "experience"
-    },
-
-    "component_about": {
-        "number": "S_1",
-        "name": "about"
-    },
-    "component_contacts": {
-        "number": "S_1",
-        "name": "contacts"
-    },
-    "component_text": {
-        "number": "S_1",
-        "name": "text"
-    }
-
+  "component_header": {
+    "number": "S_2",
+    "name": "header"
+  },
+  "component_footer": {
+    "number": "S_2",
+    "name": "footer"
+  },
+  "component_skills": {
+    "number": "S_2",
+    "name": "skills"
+  },
+  "component_rating": {
+    "number": "S_2",
+    "name": "rating"
+  },
+  "component_experience": {
+    "number": "S_2",
+    "name": "experience"
+  },
+  "component_about": {
+    "number": "S_2",
+    "name": "about"
+  },
+  "component_contacts": {
+    "number": "S_2",
+    "name": "contacts"
+  },
+  "component_text": {
+    "number": "S_2",
+    "name": "text"
+  },
+  "component_personal": {
+    "number": "S_2",
+    "name": "personal"
+  },
+  "component_info": {
+    "number": "S_2",
+    "name": "info"
+  }
 }

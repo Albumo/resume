@@ -10,6 +10,7 @@ $(document).ready(function () {
 
     }, 2000);
 
+
     $('body').AddClassAnimation();
 
 
@@ -117,7 +118,7 @@ $(document).ready(function () {
 
             var offsetEl = $this.offset();
 
-            if (offsetEl.top <= $(document).scrollTop() + $(window).height() / 1) {
+            if (offsetEl.top <= $(document).scrollTop() + $(window).height() / 1.37) {
                 $this.addClass(addClass);
             }
         });

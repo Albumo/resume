@@ -1,6 +1,11 @@
 {
-    "number": "S_1",
-    "theme": "theme_cold",
-    "skins": ["S_1"],
-    "themes": ["theme_cold"]
+  "number": "S_2",
+  "theme": "theme_ocean",
+  "skins": [
+    "S_2"
+  ],
+  "themes": [
+    "theme_cold",
+    "theme_ocean"
+  ]
 }

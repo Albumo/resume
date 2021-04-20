@@ -1,6 +1,6 @@
 mixin rating(props)
 
-    |<!-- ********** c-rating-S-1 ********** -->
+    | <!-- ********** c-rating-S-1 ********** -->
 
     .c-rating-S-1&attributes(attributes)
         if props.role === 'svg star'
@@ -8,7 +8,7 @@ mixin rating(props)
 
         .__cl-c-rating___
             - let actualRate = ( props.rate / 5 ) * 5
-            .__cl-c-rating___.__cl-c-rating--vote___(data-rating=actualRate class=props.mod ? `__cl-c-rating--${props.mod}___`: '')
+            .__cl-c-rating___.__cl-c-rating--vote___(data-rating=actualRate class=props.mod ? `__cl-c-rating--${props.mod}___` : '')
                 if props.role === 'single-star'
                     if props.text
                         .__cl-c-rating__rate___
@@ -20,7 +20,7 @@ mixin rating(props)
 
                     .__cl-c-rating__box___
                         - for (let i = 0; i < 5; i++)
-                            .__cl-c-rating__elem___
+                        .__cl-c-rating__elem___
                     if props.text
                         .__cl-c-rating__rate___
                             span.__cl-c-rating__rate-marked___= props.rate
@@ -57,4 +57,4 @@ mixin rating(props)
                         span.__cl-c-rating__sep___ /
                         | 5
 
-    |<!-- ********** c-rating-S-1 ********** -->
+    | <!-- ********** c-rating-S-1 ********** -->
