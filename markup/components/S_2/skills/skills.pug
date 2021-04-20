@@ -1,0 +1,104 @@
+mixin skills(props)
+
+    | <!-- ********** c-testimonials-S-1 ********** -->
+
+    .skills
+        -
+            const skills = [{
+                photo: 'html',
+                name: 'html',
+                rate: 5
+            }, {
+                photo: 'pug',
+                name: 'pug',
+                rate: 5
+            }, {
+                photo: 'bootstrap',
+                name: 'Bootstrap',
+                rate: 4
+            }, {
+                photo: 'css',
+                name: 'css',
+                rate: 5
+            }, {
+                photo: 'scss',
+                name: 'scss',
+                rate: 4
+            }, {
+                photo: 'sass',
+                name: 'sass',
+                rate: 4
+            }, {
+                photo: 'flexbox',
+                name: 'FlexBox',
+                rate: 4
+            }, {
+                photo: 'js',
+                name: 'js',
+                rate: 3
+            }, {
+                photo: 'jQuery',
+                name: 'jQuery',
+                rate: 3
+            }, {
+                photo: 'bem',
+                name: 'BEM',
+                rate: 4
+            }, {
+                photo: 'gulp',
+                name: 'Gulp',
+                rate: 4
+            }, {
+                photo: 'git',
+                name: 'git',
+                rate: 3
+            }, {
+                photo: 'redmine',
+                name: 'redmine',
+                rate: 4
+            }, {
+                photo: 'jira',
+                name: 'Jira',
+                rate: 4
+            }, {
+                photo: 'photoshop',
+                name: 'Photoshop',
+                rate: 3
+            }, {
+                photo: 'pixelperfect',
+                name: 'pixelperfect',
+                rate: 5
+            }, {
+                photo: 'ws',
+                name: 'Webstorm',
+                rate: 5
+            }, {
+                photo: 'github',
+                name: 'GitHub',
+                rate: 4
+            }]
+
+        .skills__wrap
+
+            .skills__slider.js-skills-slider
+                each val in skills
+                    .skills__slide
+                        +skill({
+                            photo: val.photo,
+                            name: val.name,
+                            rate: val.rate
+                        })
+
+    | <!-- ********** c-testimonials-S-1 ********** -->
+
+mixin skill(props)
+    .skill
+        .skill__header
+            .skill__photo
+                img(src=`static/img/content/${props.photo}.jpg` alt="skill image")
+            .skill__rating-box
+                .skill__name= props.name
+                +rating({
+                    role: 'rating',
+                    rate: props.rate
+                })

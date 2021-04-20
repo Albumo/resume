@@ -1,0 +1,60 @@
+mixin rating(props)
+
+    | <!-- ********** c-rating-S-1 ********** -->
+
+    .c-rating-S-1&attributes(attributes)
+        if props.role === 'svg star'
+            | <svg style="display: none"><symbol id="svg-star" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 488.4"><path d="M511.3 185.5c-1.8-5.4-6.5-9.4-12.1-10.2l-158.7-23.1-71-143.8C266.9 3.2 261.7 0 256 0s-10.9 3.2-13.5 8.4l-71 143.8-158.7 23.1c-5.6.8-10.3 4.8-12.1 10.2-1.8 5.4-.3 11.4 3.8 15.4l114.8 112-27 158c-1 5.6 1.3 11.3 6 14.7 2.6 1.9 5.7 2.9 8.8 2.9 2.4 0 4.8-.6 7-1.7L256 412l142 74.6c5.1 2.7 11.2 2.2 15.8-1.1s6.9-9 6-14.7l-27.1-158.1 114.9-112c4-3.8 5.4-9.8 3.7-15.2z"/></symbol></svg>
+
+        .__cl-c-rating___
+            - let actualRate = ( props.rate / 5 ) * 5
+            .__cl-c-rating___.__cl-c-rating--vote___(data-rating=actualRate class=props.mod ? `__cl-c-rating--${props.mod}___` : '')
+                if props.role === 'single-star'
+                    if props.text
+                        .__cl-c-rating__rate___
+                            span.__cl-c-rating__rate-marked___= props.rate
+                    .__cl-c-rating__box___
+                        .__cl-c-rating__elem___
+
+                if props.role === 'rating'
+
+                    .__cl-c-rating__box___
+                        - for (let i = 0; i < 5; i++)
+                        .__cl-c-rating__elem___
+                    if props.text
+                        .__cl-c-rating__rate___
+                            span.__cl-c-rating__rate-marked___= props.rate
+
+                if props.role === 'vote'
+                    .__cl-c-rating__vote-box___
+                        input(type="radio" name=`ratStarComment` id=`comment-star-5`)
+                        label(title="5" for=`comment-star-5` data-value="5")
+                            svg(role="img" aria-label="rating")
+                                use(xlink:href="#svg-star")
+
+                        input(type="radio" checked name=`ratStarComment` id=`comment-star-4`)
+                        label(title="4" for=`comment-star-4` data-value="4")
+                            svg(role="img" aria-label="rating")
+                                use(xlink:href="#svg-star")
+
+                        input(type="radio" name=`ratStarComment` id=`comment-star-3`)
+                        label(title="3" for=`comment-star-3` data-value="3")
+                            svg(role="img" aria-label="rating")
+                                use(xlink:href="#svg-star")
+
+                        input(type="radio" name=`ratStarComment` id=`comment-star-2`)
+                        label(title="2" for=`comment-star-2` data-value="2")
+                            svg(role="img" aria-label="rating")
+                                use(xlink:href="#svg-star")
+
+                        input(type="radio" name=`ratStarComment` id=`comment-star-1`)
+                        label(title="1" for=`comment-star-1` data-value="1")
+                            svg(role="img" aria-label="rating")
+                                use(xlink:href="#svg-star")
+
+                    .__cl-c-rating__rate___
+                        span.__cl-c-rating__rate-marked___= props.rate
+                        span.__cl-c-rating__sep___ /
+                        | 5
+
+    | <!-- ********** c-rating-S-1 ********** -->

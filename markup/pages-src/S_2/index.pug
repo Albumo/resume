@@ -1,0 +1,32 @@
+extends _page-template
+
+block content
+    | <!-- skin 2 -->
+
+    .w-inner
+        .w-center
+            +header
+
+            #fullpage
+                #section1.section
+                    +info
+                #section2.section
+                    +experience
+                #section3.section
+                    +about
+                #section4.section
+                    +personal
+
+block scripts
+    script.
+        $(document).ready(function () {
+            $(window).on('load resize orientationchange', function () {
+                if (($(window).innerWidth() <= 768)) {
+                    $('#fullpage').fullpage({
+                        navigation: true,
+                        navigationPosition: 'right',
+                    });
+                }
+            })
+
+        })

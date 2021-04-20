@@ -1,0 +1,19 @@
+mixin personal(props)
+    .personal-S-2
+        .personal
+            -
+                const personalitys = [{
+                    personality: "Thirst to knowledges (my goals for next stage JS, React, Redux )"
+                }, {personality: "High self-control and organization"}, {personality: "Responsibility"}, {personality: "Initiative"}, {personality: "Communicability"}, {personality: "Team player"}, {personality: "Sense of purpose"}, {personality: "Good process organization and planning skills"}, {personality: "Stress resistance"}]
+
+            p.personal__title My personal skills:
+                ul.personal__list
+                    each val in personalitys
+                        li.personal__item= val.personality
+
+            p.personal__title Hobbies:
+            -
+                const hobbies = [{hobbie: "Technology"}, {hobbie: "Music"}, {hobbie: "Cooking"}, {hobbie: "Travel"}, {hobbie: "Fixing computers and mobile devices"}]
+            ul.personal__list
+                each val in hobbies
+                    li.about__item= val.hobbie

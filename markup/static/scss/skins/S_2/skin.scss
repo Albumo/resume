@@ -1,0 +1,216 @@
+body {
+    font-weight: $font-weight;
+    color: $primary-text;
+}
+
+html {
+    @include respond-from(to-sm) {
+        font-size: $font-size-xs;
+    }
+
+    font-size: $font-size;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h1 {
+    font-size: $font-size-h1;
+    color: $primary-title;
+    text-align: center;
+
+    @include respond-from(sm) {
+        font-size: $font-size-h1-sm;
+        line-height: 36px;
+    }
+
+    @include respond-from(lg) {
+        font-size: $font-size-h1-lg;
+        line-height: 56px;
+    }
+}
+
+h2 {
+    font-size: $font-size-h2;
+    color: $primary-title;
+    text-align: center;
+
+    &.is-animated {
+        &:after {
+            opacity: 1;
+            animation-name: fadeInLeft;
+        }
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 3px;
+        margin: 10px auto;
+        background: $primary-title-decor;
+        border-radius: 2px;
+        opacity: 0;
+        animation-duration: 1s;
+        animation-fill-mode: both;
+    }
+
+    @include respond-from(sm) {
+        font-size: $font-size-h2-sm;
+
+        &:after {
+            width: 130px;
+            height: 4px;
+            margin: 20px auto;
+        }
+    }
+
+    @include respond-from(lg) {
+        font-size: $font-size-h2-lg;
+    }
+}
+
+h3,
+.__cl-c-h3___ {
+    font-size: $font-size-h3;
+
+    @include respond-from(sm) {
+        font-size: $font-size-h3-sm;
+    }
+
+    @include respond-from(lg) {
+        font-size: $font-size-h3-lg;
+    }
+}
+
+p {
+    line-height: 24px;
+}
+
+a {
+    color: $link-default;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.w-center {
+    max-width: $page-width;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 $page-horizontal-gap;
+
+    @include respond-from(sm-md) {
+        padding: 0 $page-horizontal-gap-sm;
+    }
+
+    @include respond-from(md-xl) {
+        padding: 0 $page-horizontal-gap-md;
+    }
+}
+
+.w-page-section {
+    & {
+        padding: 40px 0;
+    }
+
+    &--no-bttm {
+        padding: 40px 0 0;
+    }
+
+    &--fill {
+        background: $secondary-fill;
+    }
+
+    &--comments {
+        background: $comments-fill;
+    }
+
+    @include respond-from(sm) {
+        & {
+            padding: 65px 0;
+        }
+
+        &--no-bttm {
+            padding: 65px 0 0;
+        }
+
+    }
+
+
+    @include respond-from(lg) {
+        & {
+            padding: 80px 0;
+        }
+
+        &--no-bttm {
+            padding: 80px 0 0;
+        }
+
+        &--fill {
+            h1 {
+                margin-top: -15px;
+            }
+        }
+
+    }
+}
+
+//wrappers
+.w-inner {
+    background: $primary-fill;
+}
+
+//gap
+
+.w-gap {
+    &___ {
+        margin-top: 40px;
+    }
+}
+
+.w-gap-sm {
+    margin-top: 20px;
+
+    @include respond-from(md) {
+        margin-top: 25px;
+    }
+}
+
+.w-gap-md {
+    margin-top: 25px;
+
+    @include respond-from(md) {
+        margin-top: 30px;
+    }
+}
+
+.w-gap-lg {
+    margin-top: 25px;
+
+    @include respond-from(sm) {
+        margin-top: 30px;
+    }
+
+    @include respond-from(md) {
+        margin-top: 40px;
+    }
+}
+
+.w-gap-xl {
+    margin-top: 25px;
+
+    @include respond-from(sm) {
+        margin-top: 35px;
+    }
+
+    @include respond-from(md) {
+        margin-top: 50px;
+    }
+}

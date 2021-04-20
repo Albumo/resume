@@ -1,0 +1,184 @@
+.info-S-2 {
+    .info {
+        & {
+            z-index: 99;
+            transition: all .25s ease-in-out;
+
+            &.is-animated {
+                .info__img {
+                    animation: fadeInLeft .7s linear both;
+                }
+
+                .info__name, .info__born {
+                    animation: fadeInUp 1.2s linear both;
+                }
+
+                .info__born {
+                    animation-delay: 1s;
+                }
+
+                .info__list-item {
+                    animation: fadeInUp .7s linear both;
+
+                    &:nth-child(2) {
+                        animation-delay: .9s;
+                    }
+
+                    &:nth-child(3) {
+                        animation-delay: 1.2s;
+                    }
+
+
+                }
+
+            }
+
+            &__wrap {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                margin: 0 auto;
+                flex-flow: row wrap;
+            }
+
+            &__left {
+                width: 100%;
+                max-width: 220px;
+            }
+
+            &__right {
+                position: absolute;
+                top: 140px;
+                left: 170px;
+
+            }
+
+            &__img {
+                max-width: 220px;
+                border: 2px solid #fff;
+                opacity: 0;
+
+                img {
+                    display: inline-block;
+                    min-width: 100%;
+                    min-height: 100%;
+                    margin-bottom: -8px;
+                    @include support(object-fit, cover) {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                &:hover {
+                    animation: sonar-effect 1.3s ease-out 75ms;
+                }
+            }
+
+            &__name {
+                font-size: 18px;
+                font-weight: bold;
+                color: #fff;
+                opacity: 0;
+            }
+
+            &__born {
+                font-size: 14px;
+                font-weight: bold;
+                opacity: 0;
+            }
+
+            &__bttm {
+                width: 100%;
+                padding: 20px 0;
+            }
+
+            &__bttm-list {
+                @extend %ul-reset;
+                display: flex;
+                font-size: 14px;
+                font-weight: bold;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                flex-flow: row wrap;
+            }
+
+
+        }
+
+        @include respond-from(sm) {
+
+            &__wrap {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                min-height: 120px;
+                padding: 0 45px;
+
+            }
+
+            &__left {
+                position: static;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                width: 50%;
+            }
+
+            &__img {
+                position: static;
+                width: 100px;
+                height: 100px;
+                margin: 0 20px 0 0;
+                border-width: 2px;
+            }
+
+            &__name {
+                margin: 0;
+            }
+
+            &__right {
+                display: block;
+                width: 50%;
+                text-align: right;
+            }
+
+            &.is-scroll {
+                position: fixed;
+                top: 0;
+                right: 0;
+                left: 0;
+
+                .info__wrap {
+                    min-height: 68px;
+
+                }
+
+                .info__img {
+                    position: static;
+                    width: 40px;
+                    height: 40px;
+                    margin: 0;
+                    border: none;
+                }
+
+                .info__name {
+                    margin: 0 10px;
+                }
+
+            }
+        }
+
+        @media only screen and (min-width: 1624px) {
+
+            & {
+                &__wrap {
+                    padding: 0 15px;
+
+                }
+            }
+        }
+
+    }
+}
