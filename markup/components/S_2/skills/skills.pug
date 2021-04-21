@@ -1,8 +1,9 @@
 mixin skills(props)
 
-    | <!-- ********** c-testimonials-S-1 ********** -->
+    | <!-- ********** c-testimonials-S-2 ********** -->
 
     .skills
+        h2.skills__title Skills
         -
             const skills = [{
                 photo: 'html',
@@ -35,7 +36,7 @@ mixin skills(props)
             }, {
                 photo: 'js',
                 name: 'js',
-                rate: 3
+                rate: 2
             }, {
                 photo: 'jQuery',
                 name: 'jQuery',
@@ -79,8 +80,7 @@ mixin skills(props)
             }]
 
         .skills__wrap
-
-            .skills__slider.js-skills-slider
+            .skills__slider.js-skills-slider-s2
                 each val in skills
                     .skills__slide
                         +skill({
@@ -89,7 +89,7 @@ mixin skills(props)
                             rate: val.rate
                         })
 
-    | <!-- ********** c-testimonials-S-1 ********** -->
+    | <!-- ********** c-testimonials-S-2 ********** -->
 
 mixin skill(props)
     .skill

@@ -107,15 +107,36 @@
 
         }
 
-        @include respond-from(sm) {
+        @media only screen and (min-width: 440px) {
 
             &__wrap {
                 display: flex;
                 justify-content: flex-start;
-                align-items: center;
+                align-items: end;
                 min-height: 120px;
-                padding: 0 45px;
+                padding: 0;
 
+            }
+
+            &__img {
+                position: static;
+                width: 100%;
+                max-width: 440px;
+                max-height: unset;
+
+                img {
+                    margin-bottom: -7px;
+                }
+
+            }
+
+            &__name {
+                margin: 0;
+                font-size: 21px;
+            }
+
+            &__born {
+                font-size: 18px;
             }
 
             &__left {
@@ -124,24 +145,28 @@
                 justify-content: flex-start;
                 align-items: center;
                 width: 50%;
-            }
+                max-width: unset;
 
-            &__img {
-                position: static;
-                width: 100px;
-                height: 100px;
-                margin: 0 20px 0 0;
-                border-width: 2px;
-            }
-
-            &__name {
-                margin: 0;
             }
 
             &__right {
+                position: static;
                 display: block;
                 width: 50%;
-                text-align: right;
+                padding: 0 20px;
+                text-align: left;
+            }
+
+            &__list-item {
+                font-size: 20px;
+            }
+
+            &__bttm {
+                padding: 30px 0 0;
+            }
+
+            &__bttm-list {
+                line-height: 30px;
             }
 
             &.is-scroll {
@@ -170,12 +195,46 @@
             }
         }
 
-        @media only screen and (min-width: 1624px) {
+        @include respond-from(xs) {
+            &__list-item {
+                font-size: 16px;
+            }
+        }
+
+        @media only screen and (min-width: 769px) {
 
             & {
                 &__wrap {
-                    padding: 0 15px;
+                    padding: 20px 0 0;
 
+                }
+
+                &__left {
+                    width: 60%;
+                    max-width: unset;
+                }
+
+                &__img {
+
+                    img {
+                        display: inline-block;
+                        min-width: 100%;
+                        min-height: 100%;
+                        margin-bottom: -6px;
+                        @include support(object-fit, cover) {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+
+                    &:hover {
+                        animation: sonar-effect 1.3s ease-out 75ms;
+                    }
+                }
+
+                &__right {
+                    width: 29%;
                 }
             }
         }

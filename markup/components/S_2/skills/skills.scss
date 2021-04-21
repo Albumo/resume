@@ -1,20 +1,25 @@
 /*!------------------------------------------------------------------------------
 
-    c-skills-S-1
+    c-skills-S-2
 
 ------------------------------------------------------------------------------*/
 
 .skills {
+
+    &__title {
+        text-transform: uppercase;
+    }
+
     &__wrap {
         position: relative;
-        margin: 0 -15px;
+        margin: 0 12px;
     }
 
     & {
         .skill {
             & {
                 display: flex;
-                padding: 20px 15px;
+                padding: 0 6px;
             }
 
             &__header {
@@ -25,8 +30,9 @@
             }
 
             &__photo {
-                width: 140px;
-                height: 140px;
+                min-width: 120px;
+                max-width: 160px;
+                min-height: 120px;
                 overflow: hidden;
 
                 img {

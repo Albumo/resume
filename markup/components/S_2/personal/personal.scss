@@ -1,12 +1,42 @@
 .personal-S-2 {
     .personal {
         &__title {
-            margin: 0;
+            margin: 0 0 5px 0;
+            font-weight: 500;
         }
 
         &__list {
-            margin: 6px 0;
-            padding: 0 0 0 30px;
+            margin: 0;
+            padding: 0 0 0 10px;
+            font-size: 14px;
+            list-style-type: none;
+        }
+
+        @include respond-from(sm) {
+            & {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-between;
+            }
+
+            &__wrap {
+                width: 48%;
+                margin: 0 auto;
+
+            }
+
+            &__title {
+                margin: 0 0 10px 0;
+                font-weight: 600;
+            }
+
+            &__list {
+                margin: 0 0 0 7px;
+                padding: 0 0 0 10px;
+                font-size: 14px;
+                list-style-type: disc;
+            }
+
         }
 
     }

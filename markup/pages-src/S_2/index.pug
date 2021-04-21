@@ -4,9 +4,11 @@ block content
     | <!-- skin 2 -->
 
     .w-inner
+        +header
+        +rating({
+            role: 'svg star'
+        })
         .w-center
-            +header
-
             #fullpage
                 #section1.section
                     +info
@@ -16,6 +18,12 @@ block content
                     +about
                 #section4.section
                     +personal
+                #section5.section
+                    +skills
+
+                #section6.section
+                    +contacts
+
 
 block scripts
     script.
@@ -23,7 +31,19 @@ block scripts
             if (($(window).innerWidth() <= 768)) {
                 $('#fullpage').fullpage({
                     navigation: true,
+                    scrollingSpeed: 700,
+                    autoScrolling: true,
+                    loopBottom: true,
+                    loopTop: true,
+                    keyboardScrolling: true,
                     navigationPosition: 'right',
+
+                    controlArrows: true,
+                    verticalCentered: true,
+                    paddingTop: '3em',
+                    paddingBottom: '10px',
+                    responsiveWidth: 0,
+                    responsiveHeight: 0,
                 });
             }
         })

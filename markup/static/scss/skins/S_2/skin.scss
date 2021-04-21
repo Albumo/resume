@@ -37,35 +37,11 @@ h2 {
     font-size: $font-size-h2;
     color: $primary-title;
     text-align: center;
-
-    &.is-animated {
-        &:after {
-            opacity: 1;
-            animation-name: fadeInLeft;
-        }
-    }
-
-    &:after {
-        content: '';
-        display: block;
-        width: 80px;
-        height: 3px;
-        margin: 10px auto;
-        background: $primary-title-decor;
-        border-radius: 2px;
-        opacity: 0;
-        animation-duration: 1s;
-        animation-fill-mode: both;
-    }
+    margin: 20px 0;
 
     @include respond-from(sm) {
-        font-size: $font-size-h2-sm;
+        margin: 40px 0 10px;
 
-        &:after {
-            width: 130px;
-            height: 4px;
-            margin: 20px auto;
-        }
     }
 
     @include respond-from(lg) {
@@ -73,8 +49,7 @@ h2 {
     }
 }
 
-h3,
-.__cl-c-h3___ {
+h3 {
     font-size: $font-size-h3;
 
     @include respond-from(sm) {
@@ -162,13 +137,19 @@ a {
     }
 }
 
+.section {
+
+    @include respond-from(sm) {
+        margin-bottom: 20px;
+    }
+}
+
 //wrappers
 .w-inner {
     background: $primary-fill;
 }
 
 //gap
-
 .w-gap {
     &___ {
         margin-top: 40px;

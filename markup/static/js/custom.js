@@ -10,25 +10,19 @@ $(document).ready(function () {
 
     }, 2000);
 
-
     $('body').AddClassAnimation();
-
 
     $(window).scroll(function () {
         var height = $(window).scrollTop();
-
         if (height > 132) {
             $('.js-header').addClass('is-scroll');
         } else {
             $('.js-header').removeClass('is-scroll');
         }
     });
-
     $('.js-to-item').on('click', function () {
         scrollToItem($(this));
     });
-
-
     function ScrollTop() {
         var height = 400,
             speed = 800;
@@ -94,6 +88,55 @@ $(document).ready(function () {
                 settings: {
                     slidesToShow: 6,
                     variableWidth: false
+                }
+            }]
+
+        });
+    }
+
+    if ($('.js-skills-slider-s2').length) {
+        $('.js-skills-slider-s2').slick({
+            lazyLoad: 'ondemand',
+            dots: false,
+            arrows: false,
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 1700,
+            mobileFirst: true,
+            variableWidth: false,
+            responsive: [{
+                breakpoint: 499,
+                settings: {
+                    slidesToShow: 3,
+                    variableWidth: false
+                }
+            }, {
+                breakpoint: 649,
+                settings: {
+                    slidesToShow: 4,
+                    variableWidth: false
+                }
+            }, {
+                breakpoint: 950,
+                settings: {
+                    slidesToShow: 5,
+                    variableWidth: false
+                }
+            }, {
+                breakpoint: 1023,
+                settings: {
+                    slidesToShow: 5,
+                    variableWidth: false,
+                    centerMode: true
+                }
+            }, {
+                breakpoint: 1439,
+                settings: {
+                    slidesToShow: 6,
+                    variableWidth: true,
+                    centerMode: true
+
                 }
             }]
 
@@ -165,3 +208,54 @@ function moveElem() {
     $('.js-remove--to').html(blockfrom);
     return false;
 }
+
+// rating
+(function (factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD
+        define(['jquery'], factory);
+    } else if (typeof exports === 'object') {
+        // Node/CommonJS для Browserify
+        module.exports = factory;
+    } else {
+        // Используя глобальные переменные браузера
+        factory(jQuery);
+    }
+}(function ($) {
+    'use script';
+
+    var StarRating = function (elm, option) {
+        var elRat = $(elm),
+            elRatRange = elRat.find('.js-rating__range'),
+            valMaxRat = Number(elRat.attr('data-max-rat')),
+            valRat = Number(elRat.attr('data-rat'));
+
+        var self,
+            calculatingVal = function (maxRat, Rat) {
+                if (Rat > maxRat) Rat = maxRat;
+                return Rat / maxRat * 100;
+            },
+            setRat = function () {
+                elRatRange.css('width', calculatingVal(valMaxRat, valRat) + '%');
+            },
+            init = function () {
+                setRat();
+            };
+        self = {
+            init: init
+        };
+        return self;
+    };
+
+    $.fn.starRating = function (opt) {
+        return this.each(function () {
+            var starRating;
+            if (!$(this).data('starRating')) {
+                starRating = new StarRating(this, $.extend(true, {}, opt));
+                starRating.init();
+                $(this).data('starRating', starRating);
+            }
+        });
+    };
+}));
+
