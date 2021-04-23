@@ -18,6 +18,14 @@
 
     &__slider {
         display: flex;
+
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            flex-flow: row wrap;
+
+            .skill {
+                margin-bottom: 26px;
+            }
+        }
     }
 
     .slick-arrow {
@@ -90,6 +98,7 @@
 
                 img {
                     display: inline-block;
+                    width: 100%;
                     min-width: 100%;
                     min-height: 100%;
 
@@ -121,11 +130,7 @@
 
         &__wrap {
             margin: 0;
-
-
         }
-
-
     }
 }
 

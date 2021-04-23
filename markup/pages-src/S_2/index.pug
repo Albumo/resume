@@ -35,16 +35,38 @@ block content
 block scripts
     script.
         $(document).ready(function () {
-            if (($(window).innerWidth() <= 768)) {
-                $('#fullpage').fullpage({
-                    navigation: true,
-                    scrollingSpeed: 700,
-                    autoScrolling: true,
-                    loopBottom: true,
-                    loopTop: true,
-                    keyboardScrolling: true,
-                    navigationPosition: 'right',
-                    verticalCentered: true,
-                });
+
+            var fullPageCreated = false;
+            createFullpage();
+
+            function createFullpage() {
+                if (fullPageCreated === false) {
+                    fullPageCreated = true;
+                    $('#fullpage').fullpage({
+                        navigation: true,
+                        autoScrolling: true,
+                        loopBottom: true,
+                        loopTop: true,
+                        keyboardScrolling: true,
+                        navigationPosition: 'right',
+                        verticalCentered: true,
+                    });
+                }
             }
+
+            if (document.documentElement.clientWidth > 768) {
+                $.fn.fullpage.destroy('all');
+            }
+
+            $(window).resize(function () {
+                if ($(window).width() <= 768) {
+                    createFullpage();
+                } else {
+                    if (fullPageCreated == true) {
+                        fullPageCreated = false;
+                        $.fn.fullpage.destroy('all');
+                    }
+                }
+
+            });
         })

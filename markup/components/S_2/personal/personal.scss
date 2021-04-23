@@ -53,5 +53,11 @@
 
         }
 
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            .personal__title, .personal__list {
+                opacity: 1;
+            }
+        }
+
     }
 }
