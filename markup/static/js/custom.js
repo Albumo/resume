@@ -1,28 +1,31 @@
-var fired = false;
-window.addEventListener('scroll', loadWithDelay, false);
-
-function loadWithDelay() {
-
-}
-
 $(document).ready(function () {
-    setTimeout(function () {
-
-    }, 2000);
-
     $('body').AddClassAnimation();
 
-    $(window).scroll(function () {
-        var height = $(window).scrollTop();
-        if (height > 132) {
-            $('.js-header').addClass('is-scroll');
-        } else {
-            $('.js-header').removeClass('is-scroll');
-        }
+    ScrollTop();
+
+    $('.js-to-item').on('click', function (e) {
+        setTimeout(() => {
+            scrollToItem($(this));
+        }, 100);
     });
-    $('.js-to-item').on('click', function () {
-        scrollToItem($(this));
-    });
+
+    // scroll to element
+    function scrollToItem(elem) {
+        var el = $(elem).attr('href').slice(1),
+            elToScroll = $(`#${el}`),
+            navHeight = 0,
+            time = 400,
+            gap = 70,
+            offsetTop = elToScroll.offset().top,
+            totalScroll = offsetTop - navHeight - gap;
+
+        $('body,html').animate({
+            scrollTop: totalScroll
+        }, time);
+
+        return false;
+    }
+
     function ScrollTop() {
         var height = 400,
             speed = 800;
@@ -44,8 +47,6 @@ $(document).ready(function () {
             }
         });
     }
-
-    ScrollTop();
 
     // slider
     if ($('.js-skills-slider').length) {
@@ -126,88 +127,15 @@ $(document).ready(function () {
             }, {
                 breakpoint: 1023,
                 settings: {
-                    slidesToShow: 5,
-                    variableWidth: false,
-                    centerMode: true
-                }
-            }, {
-                breakpoint: 1439,
-                settings: {
                     slidesToShow: 6,
-                    variableWidth: true,
-                    centerMode: true
-
+                    centerMode: false,
+                    arrows: true
                 }
             }]
 
         });
     }
 });
-
-// Add animation
-(function ($) {
-    var addClassAnimation = {
-        elementAnim: '.js-animate',
-        classAnim: 'is-animated'
-    };
-
-    addClassAnimation.add = function (element) {
-        var $self = this;
-        var element = this.elementAnim;
-        var addClass = this.classAnim;
-
-        $(element).each(function () {
-            var $this = $(this);
-
-            var offsetEl = $this.offset();
-
-            if (offsetEl.top <= $(document).scrollTop() + $(window).height() / 1.37) {
-                $this.addClass(addClass);
-            }
-        });
-    };
-
-    $.fn.AddClassAnimation = function (options) {
-        if (options && typeof options === 'object') {
-            $.extend(addClassAnimation, options);
-        }
-
-        var $this = $(this);
-
-        addClassAnimation.add($this);
-
-        $(window).on('scroll', function () {
-            addClassAnimation.add($this);
-        });
-
-        return this;
-    };
-})(jQuery);
-
-// scroll to element
-function scrollToItem(elem) {
-    var el = $(elem).attr('href').slice(1),
-        elToScroll = $(`#${el}`),
-        navHeight = $('.js-header').outerHeight(),
-        gap = 20,
-        time = 500,
-        offsetTop = elToScroll.offset().top,
-        totalScroll = offsetTop - navHeight - gap;
-
-    $('body,html').animate({
-        scrollTop: totalScroll
-    }, time);
-
-    return false;
-}
-
-moveElem();
-
-function moveElem() {
-    var blockfrom = $('.js-remove--from').html();
-    $('.js-remove--to').html(blockfrom);
-    return false;
-}
 
 // rating
 (function (factory) {
@@ -259,3 +187,42 @@ function moveElem() {
     };
 }));
 
+// Add animation
+(function ($) {
+    var addClassAnimation = {
+        elementAnim: '.js-animate',
+        classAnim: 'is-animated'
+    };
+
+    addClassAnimation.add = function (element) {
+        var $self = this;
+        var element = this.elementAnim;
+        var addClass = this.classAnim;
+
+        $(element).each(function () {
+            var $this = $(this);
+
+            var offsetEl = $this.offset();
+
+            if (offsetEl.top <= $(document).scrollTop() + $(window).height() / 1) {
+                $this.addClass(addClass);
+            }
+        });
+    };
+
+    $.fn.AddClassAnimation = function (options) {
+        if (options && typeof options === 'object') {
+            $.extend(addClassAnimation, options);
+        }
+
+        var $this = $(this);
+
+        addClassAnimation.add($this);
+
+        $(window).on('scroll', function () {
+            addClassAnimation.add($this);
+        });
+
+        return this;
+    };
+})(jQuery);

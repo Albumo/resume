@@ -12,18 +12,25 @@ block content
             #fullpage
                 #section1.section
                     +info
-                #section2.section
+                #section2.section.c-hide-sm
                     +experience
                 #section3.section
-                    +about
+                    #about
+                        +about
                 #section4.section
-                    +personal
+                    #SoftSkills
+                        +personal
                 #section5.section
-                    +skills
-
+                    #skills
+                        +skills
                 #section6.section
-                    +contacts
+                    #contacts
+                        +contacts
 
+        footer.c-footer
+            .w-center
+                .c-footer-wrap
+                    a.c-link(href="https://github.com/Albumo/resume") My GitHub
 
 block scripts
     script.
@@ -37,13 +44,7 @@ block scripts
                     loopTop: true,
                     keyboardScrolling: true,
                     navigationPosition: 'right',
-
-                    controlArrows: true,
                     verticalCentered: true,
-                    paddingTop: '3em',
-                    paddingBottom: '10px',
-                    responsiveWidth: 0,
-                    responsiveHeight: 0,
                 });
             }
         })

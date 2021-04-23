@@ -34,17 +34,18 @@ h1 {
 }
 
 h2 {
+    margin: 20px 0;
     font-size: $font-size-h2;
     color: $primary-title;
     text-align: center;
-    margin: 20px 0;
 
     @include respond-from(sm) {
         margin: 40px 0 10px;
 
     }
 
-    @include respond-from(lg) {
+    @include respond-from(md) {
+        margin: 60px 0 20px;
         font-size: $font-size-h2-lg;
     }
 }
@@ -144,6 +145,30 @@ a {
     }
 }
 
+.c-footer {
+    padding: 20px 0;
+    background: #10111e;
+}
+
+.c-footer-wrap {
+    text-align: center;
+}
+
+.c-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    transition: all .35s ease-in-out;
+
+    &:hover {
+        letter-spacing: 3px;
+        color: #084db3;
+        text-decoration: none;
+
+    }
+}
+
 //wrappers
 .w-inner {
     background: $primary-fill;
@@ -193,5 +218,18 @@ a {
 
     @include respond-from(md) {
         margin-top: 50px;
+    }
+}
+
+.c-hide-sm {
+    @include respond-from(sm) {
+        display: none;
+    }
+}
+
+.c-hide-to-sm {
+    display: none;
+    @include respond-from(sm) {
+        display: block
     }
 }

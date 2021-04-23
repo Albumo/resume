@@ -3,8 +3,20 @@ mixin header()
     | <!-- ********** header-S-2 ********** -->
 
     header.header-S-2&attributes(attributes)
-        .header.js-animate.js-header-scroll
-            .header__wrap
-                +text
+        .header.js-header
+            .w-center
+                .header__wrap
+                    .header__text
+                        +text
+                    .c-hide-to-sm
+                        ul.header__links
+                            li
+                                a.header__link.js-to-item(href="#about" aria-label="About") About
+                            li
+                                a.header__link.js-to-item(href="#SoftSkills" aria-label="Soft Skills") Soft Skills
+                            li
+                                a.header__link.js-to-item(href="#skills" aria-label="Skills") Hard Skills
+                            li
+                                a.header__link.js-to-item(href="#contacts" aria-label="Contacts") Contacts
 
     | <!-- ********** c-header-S-2 ********** -->

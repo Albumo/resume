@@ -56,7 +56,6 @@
 
             &__img {
                 max-width: 220px;
-                border: 2px solid #fff;
                 opacity: 0;
 
                 img {
@@ -201,7 +200,7 @@
             }
         }
 
-        @media only screen and (min-width: 769px) {
+        @include respond-from(sm) {
 
             & {
                 &__wrap {
@@ -210,8 +209,12 @@
                 }
 
                 &__left {
-                    width: 60%;
-                    max-width: unset;
+                    max-width: 440px;
+                }
+
+                &__right {
+                    width: 40%;
+                    padding: 0 0 0 20px;
                 }
 
                 &__img {
@@ -233,9 +236,20 @@
                     }
                 }
 
-                &__right {
-                    width: 29%;
-                }
+            }
+        }
+
+        @media only screen and (min-width: 1200px) {
+            &__wrap {
+                position: relative;
+            }
+
+            &__bttm {
+                position: absolute;
+                bottom: 0;
+                left: 440px;
+                width: auto;
+                padding-left: 20px;
             }
         }
 

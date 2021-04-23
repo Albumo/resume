@@ -125,7 +125,7 @@ html.fp-enabled, .fp-enabled body {
     position: relative;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box
+    -webkit-box-sizing: border-box;
 }
 
 .fp-slide {
@@ -198,6 +198,12 @@ html.fp-enabled, .fp-enabled body {
 .fp-notransition {
     transition: none !important;
     -webkit-transition: none !important
+}
+
+#fullpage {
+    @include respond-from(sm) {
+        padding-top: 54px;
+    }
 }
 
 #fp-nav {

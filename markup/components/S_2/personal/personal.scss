@@ -15,8 +15,20 @@
         @include respond-from(sm) {
             & {
                 display: flex;
-                flex-flow: row wrap;
                 justify-content: space-between;
+                flex-flow: row wrap;
+            }
+
+            &.is-animated {
+                .personal__title {
+                    animation: fadeIn 1.4s linear both;
+                }
+
+                .personal__list {
+                    animation: fadeInLeft 1s linear both;
+
+                }
+
             }
 
             &__wrap {
@@ -28,6 +40,7 @@
             &__title {
                 margin: 0 0 10px 0;
                 font-weight: 600;
+                opacity: 0;
             }
 
             &__list {
@@ -35,6 +48,7 @@
                 padding: 0 0 0 10px;
                 font-size: 14px;
                 list-style-type: disc;
+                opacity: 0;
             }
 
         }

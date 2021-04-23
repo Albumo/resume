@@ -1,15 +1,23 @@
 .about {
 
-    &__wrap {
-        &.is-animated {
-            .about__titling {
-                animation: fadeIn 1s linear both;
-            }
-
-        }
-    }
-
     &__titling {
         text-transform: uppercase;
+    }
+
+    @include respond-from(sm) {
+
+        &__titling {
+            opacity: 0;
+        }
+
+        &__wrap {
+            &.is-animated {
+                .about__titling {
+                    animation: fadeIn 1s linear both;
+                }
+
+            }
+        }
+
     }
 }

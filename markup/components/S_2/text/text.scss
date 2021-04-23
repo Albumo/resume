@@ -93,6 +93,16 @@
         }
 
     }
+
+    @include respond-from(sm) {
+
+
+
+        &__figcaption {
+            text-align: left;
+        }
+
+    }
 }
 
 

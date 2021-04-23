@@ -8,10 +8,49 @@
             background: #10111e;
         }
 
-        @media only screen and (min-width: 769px) {
-            & {
-                position: static;
+        &__wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+
+        &__links {
+            @extend %ul-reset;
+            display: flex;
+        }
+
+        @include respond-from(sm) {
+
+            &__links {
+
+                li {
+
+                    margin-right: 20px;
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+
             }
+
+            &__link {
+                color: #fff;
+            }
+
+        }
+
+        @media only screen and (min-width: 1200px) {
+
+            &__links {
+
+                li {
+
+                    margin-right: 40px;
+                }
+            }
+
         }
     }
 }
